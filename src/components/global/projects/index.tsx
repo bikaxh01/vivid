@@ -7,36 +7,12 @@ type Props = {
   projects: Project[];
 };
 
-function Projects() {
+function Projects({ projects }: Props) {
   return (
-    <div className="  grid grid-cols-1 sm:grid-cols-2  scroll-smooth lg:grid-cols-4 gap-7 overflow-auto  p-3 ">
-      {/* {projects.map((item) => ( */}
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-      <ProjectCard project={{ id: "werew", title: "Tititle" }} />
-
-      {/* ))} */}
+    <div className="  grid grid-cols-1 sm:grid-cols-2  scroll-smooth lg:grid-cols-5 gap-7 overflow-auto  p-3 ">
+      {projects.map((item, idx) => (
+        <ProjectCard key={idx} project={{ id: "werew", title: "Tititle" }} />
+      ))}
     </div>
   );
 }

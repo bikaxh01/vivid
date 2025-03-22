@@ -4,8 +4,10 @@ import Projects from "@/components/global/projects";
 import React from "react";
 
 async function page() {
-  // const allProjects = await getAllProjects();
-  // console.log("🚀 ~ page ~ allProjects:", allProjects);
+
+  //const allProjects = await getAllProjects();
+  const allProjects = [1,2,2,3,4,4];
+
   return (
     <>
       <div className="  p-4  bg-black h-full  w-full ">
@@ -15,11 +17,7 @@ async function page() {
             All fo your work in one place
           </span>
           <div className=" p-2">
-            {/* {allProjects.length > 0 ? (
-            ) : (
-              <NotFound />
-              )} */}
-              <Projects  />
+            {allProjects.length > 0 ? <Projects projects={allProjects} /> : <NotFound />}
           </div>
         </div>
       </div>

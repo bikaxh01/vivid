@@ -19,7 +19,7 @@ type Props = {
 
 function AppSidebar({ projects,user }: Props) {
   return (
-    <Sidebar>
+    <Sidebar className=" border-none">
       <SidebarHeader className="  items-center justify-start flex flex-row p-4 gap-4">
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />

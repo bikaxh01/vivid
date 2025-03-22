@@ -34,7 +34,7 @@ export default function RootLayout({
         >
           <Toaster richColors  />
           <ThemeProvider  attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange>{children}</ThemeProvider>
         </body>

@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { onAuthenticateUser } from "./auth";
 import { prismaClient } from "@/config/prismaClient";
 
+
 export async function getRecentProjects() {
   try {
     const { user } = await onAuthenticateUser();
@@ -48,5 +49,29 @@ export async function getAllProjects() {
   } catch (error) {
     console.log("🔴 Error while getting all projects", error);
     return [];
+  }
+}
+
+export async function deleteProject(projectId: string) {
+  try {
+    const { user } = await onAuthenticateUser();
+    if (!user) {
+      redirect("/sign-in");
+    }
+
+    const project = await prismaClient.project.update({
+      where: {
+        userId: user.id,
+        id: projectId,
+      },
+      data: {
+        isDeleted: true,
+      },
+    });
+
+    return { status: 200, data: { ...project } };
+  } catch (error) {
+    console.log("🔴🔴Error while deleting project", error);
+    throw new Error("something went wrong");
   }
 }
